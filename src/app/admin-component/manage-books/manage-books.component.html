@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="col text-center">
+            <button type="button" routerLink="/admin/books/add" class="btn btn-success" style="text-align:center">Click here to add Books</button>
+        </div>
+        <br>
+        <table class="table table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th></th>
+                    <th>Name</th>
+                    <th>Author</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let b of books">
+                    <td class="align-middle">
+                        <img src="{{b.imageUrl}}" height="40" width="40" />
+                    </td>
+                    <td class="align-middle">{{b.name}}</td>
+                    <td class="align-middle">{{b.author}}</td>
+                    <td class="align-middle">
+                        <button type="button" routerLink="/admin/books/edit/{{b.bookId}}" class="btn btn-primary">Edit</button>
+                    </td>
+                    <td class="align-middle">
+                        <button type="button" (click)="deleteBook(b.bookId)" class="btn btn-danger">Delete</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

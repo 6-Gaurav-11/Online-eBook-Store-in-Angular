@@ -1,0 +1,37 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="col text-center">
+            <h2><b>List of Orders</b></h2>
+        </div>
+        <br>
+        <table class="table table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Order ID</th>
+                    <th>Username</th>
+                    <th>Book</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let o of orders">
+                    <td class="align-middle">{{o.orderId}}</td>
+                    <td class="align-middle">{{o.username}}</td>
+                    <td class="align-middle">{{o.name}}</td>
+                    <td class="align-middle">{{o.author}}</td>
+                    <td class="align-middle">{{o.price | currency: 'INR'}}</td>
+                </tr>
+                <tr>
+                    <td class="align-middle"> </td>
+                    <td class="align-middle"> </td>
+                    <td class="align-middle"> </td>
+                    <td class="align-middle"> </td>
+                    <td class="align-middle"><b>Total: {{totalAmt() | currency: 'INR'}}</b></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

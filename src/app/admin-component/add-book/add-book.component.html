@@ -1,0 +1,70 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <form [formGroup]="addBookForm" class="form-box">
+            <h2 style="text-align:center">Add Books</h2><br>
+            <br>
+            <div class="form-group">
+                <label><b>Book ISBN : </b></label>
+                <input type="text" formControlName="bookId" class="form-control mb-3 mt-3" placeholder="ISBN-13" />
+            </div>
+            <div class="form-group">
+                <label><b>Book Name : </b></label>
+                <input type="text" formControlName="name" class="form-control mb-3 mt-3" placeholder="Name" />
+            </div>
+            <div class="form-group">
+                <label><b>Author : </b></label>
+                <input type="text" formControlName="author" class="form-control mb-3 mt-3"
+                    placeholder="Author" />
+            </div>
+            <div class="form-group">
+                <label><b>Price : </b></label>
+                <input type="number" formControlName="price" class="form-control mb-3 mt-3"
+                    placeholder="Price" />
+            </div>
+            <div class="form-group">
+                <label><b>Publisher : </b></label>
+                <input type="text" formControlName="publisher" class="form-control mb-3 mt-3"
+                    placeholder="Publisher" />
+            </div>
+            <div class="form-group">
+                <label><b>Genre : </b></label>
+                <select class="form-control mb-3 mt-3" formControlName="genre">
+                    <option value="Action">Action</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Literature">Literature</option>
+                    <option value="Comedy">Comedy</option>
+                  </select>
+            </div>
+            <div class="form-group">
+                <label><b>Description : </b></label>
+                <textarea formControlName="description" rows="10" cols="30" class="form-control mb-3 mt-3"
+                    placeholder="Description"></textarea>
+            </div>
+            <div class="form-group">
+                <label><b>Pages : </b></label>
+                <input type="number" formControlName="pages" class="form-control mb-3 mt-3"
+                    placeholder="Pages" />
+            </div>
+            <div class="form-group">
+                <label><b>Publish Year : </b></label>
+                <input type="number" formControlName="publishYear" class="form-control mb-3 mt-3"
+                    placeholder="Publish Year" />
+            </div>
+            <div class="form-group">
+                <label><b>Image URL : </b></label>
+                <input type="text" formControlName="imageUrl" class="form-control mb-3 mt-3"
+                    placeholder="Image URL" />
+            </div>
+            <br>
+            <div class="col text-center">
+                <button type="submit" [disabled]="addBookForm.invalid" class="btn btn-info" (click)="addBook()">Add</button>
+            </div>
+
+        </form>
+    </div>
+</div>

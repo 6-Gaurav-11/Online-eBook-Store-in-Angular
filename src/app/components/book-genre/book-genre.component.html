@@ -1,0 +1,23 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div *ngFor="let b of books" class="col-md-3">
+                    <div class="product-box">
+                        <div class="cards">
+                        <a routerLink="/books/{{b.bookId}}">
+                            <img src="{{b.imageUrl}}" class="img-responsive">
+                        </a>
+                        </div>
+                        <h1>{{b.name}}</h1>
+                        <div class="author">{{b.author}}</div>
+                        <div class="price">{{b.price | currency:'INR'}}</div>
+                        <button type="button" [disabled]="!active()" (click)="paymentCheck(b.bookId)" class="btn btn-primary btn-sm">Add to Library</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

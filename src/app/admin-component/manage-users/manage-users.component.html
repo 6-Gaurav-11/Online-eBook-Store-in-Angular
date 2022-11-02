@@ -1,0 +1,27 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <table class="table table-hover">
+
+            <thead class="table-dark">
+                <tr>
+                    <th>Username</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let u of users">
+                    <td class="align-middle">{{u.username}}</td>
+                    <td class="align-middle">{{u.fullName}}</td>
+                    <td class="align-middle">{{u.email}}</td>
+                    <td class="align-middle">
+                        <button type="button" *ngIf="u.username != 'admin'" (click)="deleteUser(u.username)" class="btn btn-danger">Delete User</button>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <form [formGroup]="editContentForm" class="form-box">
+            <h2 style="text-align:center">Update Content</h2><br>
+            <button type="submit" class="btn btn-info" (click)="loadApiData()">Load Data</button>
+            <br>
+            <br>
+            <div class="form-group">
+                <label><b>Book ISBN : </b></label>
+                <input type="text" formControlName="bookId" class="form-control mb-3 mt-3" placeholder="ISBN-13" />
+            </div>
+            <div class="form-group">
+                <label><b>Content : </b></label>
+                <textarea formControlName="synopsis" rows="10" cols="30" class="form-control mb-3 mt-3"
+                    placeholder="Add the contents here ..."></textarea>
+            </div>
+            <br>
+            <div class="col text-center">
+                <button type="submit" class="btn btn-info" (click)="editContent()">Update</button>
+            </div>
+            <!-- <div *ngIf="message" style="color: green;">{{message}}</div> -->
+
+        </form>
+    </div>
+</div>

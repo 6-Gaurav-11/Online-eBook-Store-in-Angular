@@ -1,0 +1,86 @@
+<div>
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasDarkNavbar"
+        aria-controls="offcanvasDarkNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <a class="navbar-brand" routerLink="/books">
+        <h4>Book Store</h4>
+      </a>
+
+      <div>
+        <button type="button" class="btn btn-info" *ngIf="active()==true" routerLink="/library" style="margin-right: 30px">Library</button>
+        <button type="button" class="btn btn-info" *ngIf="active()==false" routerLink="/login" style="margin-right: 30px">Library</button>        <button type="button" class="btn btn-dark" routerLink="/register">Register</button>
+        <button type="button" class="btn btn-dark" routerLink="/login" *ngIf="active()==false">Login</button>
+        <button type="button" class="btn btn-dark" (click)="logout()" *ngIf="active()==true">Logout</button>
+
+      </div>
+
+      <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasDarkNavbar"
+        aria-labelledby="offcanvasDarkNavbarLabel">
+        <div class="offcanvas-header">
+          <h4 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome to Book Store</h4>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
+            aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <form class="d-flex mt-3" role="search">
+              <input #myInput class="form-control me-2" type="search" placeholder="Search Books ..." aria-label="Search"
+                (keyup.enter)="doSearch(myInput.value)">
+              <button class="btn btn-success" (click)="doSearch(myInput.value)">Search</button>
+            </form>
+            <br>
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" style="font-size:20px" routerLink="/books">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" role="button" style="font-size:20px" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Book Category
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" style="font-size:20px">
+                <li><a class="dropdown-item" routerLink="/genre/Action" style="font-size:15px">Action</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Adventure" style="font-size:15px">Adventure</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Comedy" style="font-size:15px">Comedy</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Fantasy" style="font-size:15px">Fantasy</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Fiction" style="font-size:15px">Fiction</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Horror" style="font-size:15px">Horror</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Literature" style="font-size:15px">Literature</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Mystery" style="font-size:15px">Mystery</a></li>
+                <li><a class="dropdown-item" routerLink="/genre/Romance" style="font-size:15px">Romance</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" *ngIf="active()==true">
+              <a class="nav-link dropdown-toggle" role="button" style="font-size:20px" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                User Profile
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" style="font-size:20px">
+                <li><a class="dropdown-item" routerLink="/user" style="font-size:15px">Your Details</a></li>
+                <li><a class="dropdown-item" routerLink="/orders" style="font-size:15px">Your Orders</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown" *ngIf="adminLog()==true">
+              <a class="nav-link dropdown-toggle" role="button" style="font-size:20px" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                Administrator Tools
+              </a>
+              <ul class="dropdown-menu dropdown-menu-dark" style="font-size:20px">
+                <li><a class="dropdown-item" routerLink="/admin/orders" style="font-size:15px">List of Orders</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/books" style="font-size:15px">Manage Books</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/users" style="font-size:15px">Manage Users</a></li>
+                <li><a class="dropdown-item" routerLink="/admin/content" style="font-size:15px">Manage Book Content</a></li>
+              </ul>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>

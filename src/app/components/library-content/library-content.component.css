@@ -1,0 +1,36 @@
+p {
+    /* width: 500px; */
+    white-space: pre-wrap;
+    word-break: normal;
+    overflow-wrap: break-word ;
+ }
+
+ .section-content-p40{
+    padding:0 40px;
+    padding-top: 40px;
+    padding-left: 100px;
+    padding-right: 100px
+}
+
+.page-wrapper{
+    overflow:hidden;
+    background:#e5e5e5;
+    padding-bottom:8vh
+}
+
+.page-container{
+    background:#e5e5e5;
+    padding-left:200px
+}
+
+.main-content{
+    padding-top:110px;
+    min-height:100vh
+}
+
+aside.menu-sidebar.d-none.d-lg-block.clr{
+    background:0 0;
+    z-index:99999999;
+    height:75px;
+    box-shadow:-2px 0 4px #0000003b
+}

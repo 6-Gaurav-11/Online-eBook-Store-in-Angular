@@ -1,0 +1,64 @@
+<div class="main-content">
+    <div class="section-content section-content-p30">
+        <section class="vh-100 bg-image">
+            <div class="mask d-flex align-items-center h-100 gradient-custom-3">
+                <div class="container h-100">
+                    <div class="row d-flex justify-content-center align-items-center h-100">
+                        <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                            <div class="card" style="border-radius: 15px;">
+                                <div class="card-body p-5">
+                                    <h2 class="text-center mb-5"><b><u>Update Your Details</u></b></h2>
+
+                                    <form [formGroup]="userForm">
+                                        <h6>Note : You cannot change your username !</h6>
+                                        <button type="button" class="btn btn-primary" (click)="loadUserData()">Click here to fill your existing details</button><br><br>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"><b>Username :</b></label>
+                                            <input type="text"
+                                                class="form-control form-control-lg" formControlName="username" readonly/>
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"><b>Full Name :</b></label>
+                                            <input type="text"
+                                                [class.is-invalid]="userForm.get('fullName')?.invalid && userForm.get('fullName')?.touched"
+                                                class="form-control form-control-lg" formControlName="fullName" />
+
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"><b>Email :</b></label>
+                                            <input type="email"
+                                                [class.is-invalid]="userForm.get('email')?.invalid && userForm.get('email')?.touched"
+                                                class="form-control form-control-lg" formControlName="email" />
+
+                                        </div>
+
+                                        <div class="form-outline mb-4">
+                                            <label class="form-label"><b>Password :</b></label>
+                                            <input type="password"
+                                                [class.is-invalid]="userForm.get('password')?.invalid && userForm.get('password')?.touched"
+                                                class="form-control form-control-lg" formControlName="password" />
+                                            <small *ngIf="userForm.get('password')?.errors?.['minlength']"
+                                                class="text-danger">Password should be of
+                                                minimum 8 characters</small>
+                                        </div>
+
+                                        <div class="d-flex justify-content-center">
+                                            <button type="button" (click)="updateUserDetails()"
+                                                [disabled]="userForm.invalid"
+                                                class="btn btn-success btn-block btn-lg">Update</button>
+                                        </div>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
